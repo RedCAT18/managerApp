@@ -17,7 +17,7 @@ class LoginForm extends Component {
   onButtonPress() {
     const { email, password } = this.props;
 
-    this.props.loginUser({email, password});
+    this.props.loginUser({ email, password });
   }
 
   renderError() {
@@ -31,7 +31,7 @@ class LoginForm extends Component {
   }
 
   renderButton() {
-    if(this.props.loading) {
+    if (this.props.loading) {
       return <Spinner size={'large'} />;
     } 
 
@@ -39,17 +39,24 @@ class LoginForm extends Component {
       <Button onPress={this.onButtonPress.bind(this)}>
             Login
       </Button>
-    )
+    );
   }
 
   render() {
     return (
       <Card>
         <CardSection>
+          <View style={styles.titleArea}>
+            <Text style={styles.title}>
+              Welcome Managers
+            </Text>
+          </View>
+        </CardSection>
+        <CardSection>
           <Input
             value={this.props.email}
             label="Email"
-            placeholder="Input Email"
+            placeholder="test@test.com"
             onChangeText={this.onEmailChange.bind(this)}
           />
         </CardSection>
@@ -59,7 +66,7 @@ class LoginForm extends Component {
             value={this.props.password}
             secureTextEntry
             label="Password"
-            placeholder="Input Password"
+            placeholder="111111"
             onChangeText={this.onPasswordChange.bind(this)}
           />
         </CardSection>
@@ -91,6 +98,16 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: 'red',
     alignSelf: 'center'
+  },
+  title: {
+    fontSize: 28,
+    fontWeight: '700',
+    margin: 40,
+  },
+  titleArea: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
 

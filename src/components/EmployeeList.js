@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ListView } from 'react-native';
-import { employeesFetch } from '../actions';
 import _ from 'lodash';
+import { employeesFetch } from '../actions';
 import ListItem from './ListItem';
 
 class EmployeeList extends Component {

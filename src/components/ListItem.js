@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import { Text, TouchableWithoutFeedback, View, StyleSheet } from 'react-native';
-import { CardSection } from './common';
 import { Actions } from 'react-native-router-flux';
+import { Text, TouchableWithoutFeedback, View, StyleSheet, Dimensions } from 'react-native';
+import { CardSection } from './common';
+
+
+const { width } = Dimensions.get('window');
 
 class ListItem extends Component {
   onRowPress() {
@@ -10,7 +13,7 @@ class ListItem extends Component {
   }
   
   render() {
-    const { name } = this.props.employee;
+    const { name, shift, phone } = this.props.employee;
 
     return (
       <TouchableWithoutFeedback
@@ -18,7 +21,11 @@ class ListItem extends Component {
       >
         <View>
           <CardSection>
-            <Text style={styles.titleStyle}>{name}</Text>
+            <View style={styles.list}>
+              <Text style={styles.titleStyle}>{name}</Text>
+              <Text style={styles.textStyle}>{shift}</Text>
+              <Text style={styles.textStyle}>{phone}</Text>
+            </View>
           </CardSection>  
         </View>
       </TouchableWithoutFeedback>
@@ -28,8 +35,22 @@ class ListItem extends Component {
 
 const styles = StyleSheet.create({
   titleStyle: {
-    fontSize: 18,
-    paddingLeft: 15
+    width: width * 0.3,
+    fontSize: 16,
+    fontWeight: '600',
+    paddingRight: 20,
+  },
+  textStyle: {
+    width: width * 0.35,
+    fontSize: 14,
+    paddingLeft: 10,
+    lineHeight: 16,
+    marginTop: 5,
+    justifyContent: 'flex-end'
+  },
+  list: {
+    padding: 15,
+    flexDirection: 'row'
   }
 });
 
