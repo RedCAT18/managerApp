@@ -1,4 +1,4 @@
-package com.manager;
+package com.welcome_manager;
 
 import android.app.Application;
 
